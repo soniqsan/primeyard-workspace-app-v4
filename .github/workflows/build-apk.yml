@@ -21,13 +21,11 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Generate launcher icons
-        run: |
-          dart pub global activate flutter_launcher_icons
-          flutter pub run flutter_launcher_icons
-
       - name: Generate Android platform files
         run: flutter create . --platforms=android
+
+      - name: Generate launcher icons
+        run: flutter pub run flutter_launcher_icons
 
       - name: Build release APK
         run: flutter build apk --release
